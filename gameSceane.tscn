@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx56mgbkxdu4u"]
+
+[ext_resource type="PackedScene" uid="uid://nund2fuw7efn" path="res://assets/player.tscn" id="1_r1xdg"]
+
+[sub_resource type="Environment" id="Environment_8mebt"]
+background_mode = 1
+background_color = Color(0.387706, 0.780665, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_matxn"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="Gradient" id="Gradient_s86tb"]
+colors = PackedColorArray(0.273873, 0.273873, 0.273873, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tli4j"]
+gradient = SubResource("Gradient_s86tb")
+width = 16
+height = 16
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2gm5"]
+albedo_color = Color(0.0122166, 0.54489, 2.88785e-07, 1)
+albedo_texture = SubResource("GradientTexture2D_tli4j")
+uv1_scale = Vector3(100, 100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tnu31"]
+data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500, -500, 0, -500, 500, 0, -500)
+
+[node name="GameSceane" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8mebt")
+
+[node name="floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_matxn")
+surface_material_override/0 = SubResource("StandardMaterial3D_u2gm5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tnu31")
+
+[node name="Player" parent="." instance=ExtResource("1_r1xdg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423674, 5.96046e-08, -0.0055061)

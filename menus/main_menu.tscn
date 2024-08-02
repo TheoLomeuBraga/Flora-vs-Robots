@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1ijjsjrpfjwe"]
+
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_3t2pc"]
+[ext_resource type="PackedScene" uid="uid://cx56mgbkxdu4u" path="res://gameSceane.tscn" id="2_rk1ne"]
+
+[sub_resource type="Theme" id="Theme_vsrau"]
+Button/colors/font_hover_color = Color(0, 0.94902, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1.18522e-06, 0.31663, 4.81308e-08, 1)
+Label/colors/font_color = Color(0, 1, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vsrau")
+script = ExtResource("1_3t2pc")
+game_ceane = ExtResource("2_rk1ne")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 400.0
+color = Color(3.21874e-07, 0.161417, 2.40654e-08, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 400.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Flora vs Robots"
+horizontal_alignment = 1
+
+[node name="start" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "start
+"
+
+[node name="quit" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "quit
+"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/quit" to="." method="_on_quit_pressed"]
