@@ -120,7 +120,11 @@ func make_gun_stuf(delta):
 	
 	time_to_next_shot -= delta
 
+@export var game_over_screen : PackedScene
+
 func _physics_process(delta):
+	
+	
 	move(delta)
 	look_around(delta)
 	make_gun_stuf(delta)
@@ -133,8 +137,10 @@ func _physics_process(delta):
 			
 			if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0:
 				if item_coliding.item_selected == 4:
-					$healthBar.value = 100
+					$healthBar.value = 10
 				else:
 					wepon_selected = item_coliding.item_selected
-
+	
+	if $healthBar.value == 0:
+		get_tree().change_scene_to_packed(game_over_screen)
 	

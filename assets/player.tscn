@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://nund2fuw7efn"]
+[gd_scene load_steps=16 format=3 uid="uid://nund2fuw7efn"]
 
 [ext_resource type="Script" path="res://assets/player.gd" id="1_j4vxk"]
 [ext_resource type="ArrayMesh" uid="uid://cf041ew3iewmn" path="res://assets/meshes_materials/assets_charter.res" id="1_nmss0"]
@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cw3aqa8n23ll6" path="res://assets/meshes_materials/assets_smg_gum_plant.res" id="4_n7cgr"]
 [ext_resource type="ArrayMesh" uid="uid://p3rsdex62c6r" path="res://assets/meshes_materials/assets_shot_gum_plant.res" id="5_3rvpn"]
 [ext_resource type="PackedScene" uid="uid://d1osouhsopqqu" path="res://bullet.tscn" id="6_v68g0"]
+[ext_resource type="PackedScene" uid="uid://dp4dmav54u0qh" path="res://menus/gameOver.tscn" id="7_2s65u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pqxy7"]
 
@@ -42,6 +43,7 @@ pistol = ExtResource("3_awpt5")
 smg = ExtResource("4_n7cgr")
 shotgum = ExtResource("5_3rvpn")
 bullet = ExtResource("6_v68g0")
+game_over_screen = ExtResource("7_2s65u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -76,7 +78,8 @@ offset_bottom = 400.0
 tooltip_text = "
 "
 theme = SubResource("Theme_vcnnu")
-value = 20.01
+max_value = 10.0
+value = 10.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="healthBar"]

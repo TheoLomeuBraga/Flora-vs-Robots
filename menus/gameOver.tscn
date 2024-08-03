@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp4dmav54u0qh"]
+
+[ext_resource type="Script" path="res://menus/gameOver.gd" id="1_cq66w"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cq66w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 601.0
+offset_bottom = 404.0
+color = Color(1, 0.00784314, 0.054902, 0.658824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_top = 1.0
+offset_right = 599.0
+offset_bottom = 402.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "main menu
+"
+
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_button_pressed"]

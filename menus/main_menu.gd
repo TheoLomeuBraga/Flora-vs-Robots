@@ -6,9 +6,7 @@ func _ready():
 	$ColorRect/VBoxContainer/start.grab_focus()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
 
 @export var game_ceane : PackedScene
 func _on_start_pressed():
