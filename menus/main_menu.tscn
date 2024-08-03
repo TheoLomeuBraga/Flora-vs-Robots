@@ -33,6 +33,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Flora vs Robots"
 horizontal_alignment = 1
 
@@ -42,6 +43,7 @@ text = "start
 "
 
 [node name="quit" type="Button" parent="ColorRect/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "quit
 "

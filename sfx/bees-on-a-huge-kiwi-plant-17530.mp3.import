@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/bees-on-a-huge-kiwi-plant-17530.mp3-49c7c3912
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

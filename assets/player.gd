@@ -22,7 +22,8 @@ enum wepon_enum {
 	whater_can = 0,
 	pistol = 1,
 	smg = 2,
-	shotgum = 3
+	shotgum = 3,
+	health = 4
 }
 
 @export var wepon_selected : wepon_enum
@@ -30,13 +31,21 @@ enum wepon_enum {
 
 
 func look_around(delta):
+	
+	
 	var mouse_pos : Vector2 = $Camera3D.get_viewport().get_mouse_position()
 	var target_pos : Vector3 = $Camera3D.project_local_ray_normal(mouse_pos)
+	
+	var joystick_look_vector : Vector2 = Input.get_vector("look_left","look_right","look_down","look_up")
+	if joystick_look_vector.length() > 0.5:
+		target_pos.x = joystick_look_vector.x
+		target_pos.y = joystick_look_vector.y
+	
+	
 	target_pos.z = target_pos.y
 	
 	target_pos.y = 0
 	target_pos = target_pos.normalized()
-	
 	
 	$player_model.look_at($player_model.global_position + target_pos,Vector3.UP)
 	$player_model.rotation.y = -$player_model.rotation.y
@@ -70,6 +79,9 @@ func make_gun_stuf(delta):
 			b.rotation = $player_model/muzle.global_rotation
 			b.set_color(Color.GREEN)
 			
+			$Audio.stream = preload("res://sfx/bamboo-hit-80186.mp3")
+			$Audio.pitch_scale = rng.randf_range(0.75,1.25)
+			$Audio.play()
 		
 	elif wepon_selected == 2:
 		
@@ -82,6 +94,10 @@ func make_gun_stuf(delta):
 			b.rotation_degrees.y += rng.randf_range(20.0,-20.0)
 			b.set_color(Color.DEEP_PINK)
 			time_to_next_shot = 0.1
+			
+			$Audio.stream = preload("res://sfx/bamboo-hit-80186.mp3")
+			$Audio.pitch_scale = rng.randf_range(1.25,1.75)
+			$Audio.play()
 		
 	elif wepon_selected == 3:
 		
@@ -97,6 +113,10 @@ func make_gun_stuf(delta):
 				b.rotation_degrees.y += rng.randf_range(45.0,-45.0)
 				b.set_color(Color.ORANGE_RED)
 				time_to_next_shot = 0.5
+			
+			$Audio.stream = preload("res://sfx/falling-bamboo-83469.mp3")
+			$Audio.pitch_scale = rng.randf_range(1.25,1.75)
+			$Audio.play()
 	
 	time_to_next_shot -= delta
 
@@ -105,17 +125,16 @@ func _physics_process(delta):
 	look_around(delta)
 	make_gun_stuf(delta)
 	
-	print("cc",$player_model/item.get_collision_count())
 	if $player_model/item.is_colliding():
 		var i : int = 0
-		while i < $player_model/item.get_collision_count():
-			var item_coliding = $player_model/item.get_collider(i)
-			print(item_coliding.has_meta("item_selected") , item_coliding.has_meta("to_unlock_item"))
-			if item_coliding.has_meta("item_selected") and item_coliding.has_meta("to_unlock_item"):
-				#is coliding colectable item
-				if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0:
-					wepon_selected = item_coliding.item_selected
+		var item_coliding = $player_model/item.get_collider().get_parent()
+		
+		if item_coliding.has_method("is_pikable_item"):
 			
-			i+=1
+			if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0:
+				if item_coliding.item_selected == 4:
+					$healthBar.value = 100
+				else:
+					wepon_selected = item_coliding.item_selected
 
 	

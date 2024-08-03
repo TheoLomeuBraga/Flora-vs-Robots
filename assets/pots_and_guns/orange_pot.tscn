@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbc2c8fuw7plk"]
+[gd_scene load_steps=6 format=3 uid="uid://dbc2c8fuw7plk"]
 
 [ext_resource type="ArrayMesh" uid="uid://c3itmlpsh1666" path="res://assets/meshes_materials/assets_flower orange.res" id="1_weh6c"]
+[ext_resource type="Script" path="res://assets/pots_and_guns/pikable_main_item.gd" id="1_wlqil"]
 [ext_resource type="ArrayMesh" uid="uid://odie5535pa3v" path="res://assets/meshes_materials/assets_flower pot orange.res" id="2_wljhc"]
 [ext_resource type="ArrayMesh" uid="uid://p3rsdex62c6r" path="res://assets/meshes_materials/assets_shot_gum_plant.res" id="3_lyx41"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_naukt"]
+size = Vector3(3.15717, 6.55164, 3.78516)
+
 [node name="OrangePot" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_wlqil")
+item_selected = 3
 
 [node name="AssetsFlowerOrange" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_weh6c")
@@ -16,3 +22,9 @@ mesh = ExtResource("2_wljhc")
 [node name="AssetsShotGumPlant" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.19737, 0)
 mesh = ExtResource("3_lyx41")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0289001, 2.77582, 0.178711)
+shape = SubResource("BoxShape3D_naukt")
