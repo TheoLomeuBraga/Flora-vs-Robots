@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://co6gwg4tcy31k"]
+
+[ext_resource type="ArrayMesh" uid="uid://cya0wyusds6w0" path="res://assets/meshes_materials/assets_flower green.res" id="1_v00cm"]
+[ext_resource type="ArrayMesh" uid="uid://dwuf285ed84yq" path="res://assets/meshes_materials/assets_flower pot green.res" id="2_kbupr"]
+[ext_resource type="ArrayMesh" uid="uid://dc7mlq4qk5xj0" path="res://assets/meshes_materials/assets_gun_plant.res" id="3_1bh4i"]
+
+[node name="GreenPot" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="AssetsFlowerGreen" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_v00cm")
+
+[node name="AssetsFlowerPotGreen" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_kbupr")
+
+[node name="AssetsGunPlant" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.35483, 0)
+mesh = ExtResource("3_1bh4i")

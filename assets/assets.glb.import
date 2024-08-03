@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bgbkom0d6pc3w"
+uid="uid://3fee57oyfbet"
 path="res://.godot/imported/assets.glb-1b6ae07dc81210e87af63b2ec1889244.scn"
 
 [deps]
@@ -31,26 +31,6 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
-"assets_Cube_001": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/meshes_materials/assets_Cube_001.res"
-},
-"assets_Cylinder": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/meshes_materials/assets_Cylinder.res"
-},
 "assets_Fertilizer": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -120,6 +100,16 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/meshes_materials/assets_flower pot orange.res"
+},
+"assets_flower pot pink": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/meshes_materials/assets_flower pot pink.res"
 },
 "assets_flower pot red": {
 "generate/lightmap_uv": 0,
@@ -191,7 +181,7 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://assets/meshes_materials/assets_shot_gum_plant.res"
 },
-"assets_shot_gum_plant_002": {
+"assets_smg_gum_plant": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -199,7 +189,17 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/meshes_materials/assets_shot_gum_plant_002.res"
+"save_to_file/path": "res://assets/meshes_materials/assets_smg_gum_plant.res"
+},
+"assets_three": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://assets/meshes_materials/assets_three.res"
 },
 "assets_watering can": {
 "generate/lightmap_uv": 0,

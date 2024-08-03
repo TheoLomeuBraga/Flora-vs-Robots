@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cllcc27jpq8pf"]
+
+[ext_resource type="ArrayMesh" uid="uid://ru2kni7t4gdj" path="res://assets/meshes_materials/assets_flower pot red.res" id="1_wxvff"]
+[ext_resource type="ArrayMesh" uid="uid://pc7vfakfg3t7" path="res://assets/meshes_materials/assets_flower red.res" id="2_rwpr2"]
+[ext_resource type="ArrayMesh" uid="uid://dw6ai1k1fx0pe" path="res://assets/meshes_materials/assets_red fruit.res" id="3_2ghw7"]
+
+[node name="RedPot" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="AssetsFlowerPotRed" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_wxvff")
+
+[node name="AssetsFlowerRed" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_rwpr2")
+
+[node name="AssetsRedFruit" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = ExtResource("3_2ghw7")
