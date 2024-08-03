@@ -68,13 +68,13 @@ mesh = ExtResource("2_c84dq")
 shape = SubResource("ConcavePolygonShape3D_xip7o")
 
 [node name="GreenPot" parent="." instance=ExtResource("3_tpfbi")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.1549, -9.53674e-07, 10.0656)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -2.1549, -9.53674e-07, 10.0656)
 
 [node name="OrangePot" parent="." instance=ExtResource("4_24of4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, -1)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 7, 0, -1)
 
 [node name="PinkPot" parent="." instance=ExtResource("5_k366m")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0, 10)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 7, 0, 10)
 
 [node name="RedPot" parent="." instance=ExtResource("6_628t5")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, -1)
