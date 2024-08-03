@@ -57,6 +57,7 @@ shape = SubResource("ConcavePolygonShape3D_tnu31")
 
 [node name="Player" parent="." instance=ExtResource("1_r1xdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423674, 5.96046e-08, 3.99449)
+wepon_selected = 3
 
 [node name="AssetsHouse" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, -7.17106, 0, 4.95566)
@@ -232,21 +233,21 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="threes"]
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="threes/StaticBody3D"]
-transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, -1, 6, -51.5)
+transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, -0.828939, 6, -54.4205)
 shape = SubResource("BoxShape3D_855yd")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="threes/StaticBody3D"]
-transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, -1, 6, 67.5)
+transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, -1, 6, 77.3503)
 shape = SubResource("BoxShape3D_855yd")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="threes/StaticBody3D"]
-transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 29, 6, 55.5)
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 35.3823, 6, 62.8822)
 shape = SubResource("BoxShape3D_855yd")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="threes/StaticBody3D"]
-transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, 45, 6, -5.5)
+transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, 47.1711, 6, -5.5)
 shape = SubResource("BoxShape3D_855yd")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="threes/StaticBody3D"]
-transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, -48, 6, 5.22119)
+transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, -49.2488, 6, 5.22119)
 shape = SubResource("BoxShape3D_855yd")

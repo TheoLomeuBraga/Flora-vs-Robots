@@ -1,13 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://nund2fuw7efn"]
+[gd_scene load_steps=14 format=3 uid="uid://nund2fuw7efn"]
 
 [ext_resource type="Script" path="res://assets/player.gd" id="1_j4vxk"]
 [ext_resource type="ArrayMesh" uid="uid://cf041ew3iewmn" path="res://assets/meshes_materials/assets_charter.res" id="1_nmss0"]
+[ext_resource type="ArrayMesh" uid="uid://dkew8swmqmph0" path="res://assets/meshes_materials/assets_watering can.res" id="2_ip60b"]
+[ext_resource type="ArrayMesh" uid="uid://dc7mlq4qk5xj0" path="res://assets/meshes_materials/assets_gun_plant.res" id="3_awpt5"]
+[ext_resource type="ArrayMesh" uid="uid://cw3aqa8n23ll6" path="res://assets/meshes_materials/assets_smg_gum_plant.res" id="4_n7cgr"]
+[ext_resource type="ArrayMesh" uid="uid://p3rsdex62c6r" path="res://assets/meshes_materials/assets_shot_gum_plant.res" id="5_3rvpn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pqxy7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7pmn"]
+bg_color = Color(0.235294, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc0bk"]
+bg_color = Color(1, 0.0392157, 0.0235294, 1)
+
+[sub_resource type="Theme" id="Theme_vcnnu"]
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_x7pmn")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_dc0bk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qu7t"]
+bg_color = Color(0.235294, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o7dj"]
+bg_color = Color(1, 0.040504, 0.0223537, 1)
+
+[sub_resource type="Theme" id="Theme_n0e74"]
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_6qu7t")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_2o7dj")
+
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_j4vxk")
 SPEED = 12.0
+gunModelPath = NodePath("player_model/gun_model")
+whater_can = ExtResource("2_ip60b")
+pistol = ExtResource("3_awpt5")
+smg = ExtResource("4_n7cgr")
+shotgum = ExtResource("5_3rvpn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -20,9 +52,49 @@ transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0, 0, 0)
 mesh = ExtResource("1_nmss0")
 skeleton = NodePath("../..")
 
-[node name="gun_model" type="Node3D" parent="player_model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+[node name="gun_model" type="MeshInstance3D" parent="player_model"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 1)
+mesh = ExtResource("5_3rvpn")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1.13133e-08, -0.965926, 0.258819, -4.2222e-08, 0.258819, 0.965926, -1, -8.08242e-14, -4.37114e-08, 3, 10, 0)
 fov = 90.0
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+
+[node name="healthBar" type="ProgressBar" parent="."]
+offset_top = 368.0
+offset_right = 215.0
+offset_bottom = 400.0
+tooltip_text = "
+"
+theme = SubResource("Theme_vcnnu")
+value = 20.01
+show_percentage = false
+
+[node name="Label" type="Label" parent="healthBar"]
+offset_left = 27.0
+offset_right = 77.0
+offset_bottom = 23.0
+text = "health"
+
+[node name="bossHealthBar" type="ProgressBar" parent="."]
+visible = false
+offset_right = 600.0
+offset_bottom = 32.0
+tooltip_text = "
+"
+theme = SubResource("Theme_n0e74")
+value = 50.0
+show_percentage = false
+
+[node name="CenterContainer" type="CenterContainer" parent="bossHealthBar"]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 32.0
+
+[node name="boss Health" type="Label" parent="bossHealthBar/CenterContainer"]
+layout_mode = 2
+text = "Boss Health
+"
