@@ -48,18 +48,25 @@ func look_around(delta):
 @export var smg : Mesh
 @export var shotgum : Mesh
 
-func make_gun_stuf():
-	if wepon_selected == 0:
-		get_node(gunModelPath).mesh = whater_can
-	elif wepon_selected == 1:
-		get_node(gunModelPath).mesh = pistol
-	elif wepon_selected == 2:
-		get_node(gunModelPath).mesh = smg
-	elif wepon_selected == 3:
-		get_node(gunModelPath).mesh = shotgum
+var time_to_next_shot = 0.0
+
+var bullet : PackedScene
+
+func make_gun_stuf(delta):
+	if time_to_next_shot <= 0:
+		if wepon_selected == 0:
+			get_node(gunModelPath).mesh = whater_can
+		elif wepon_selected == 1:
+			get_node(gunModelPath).mesh = pistol
+		elif wepon_selected == 2:
+			get_node(gunModelPath).mesh = smg
+		elif wepon_selected == 3:
+			get_node(gunModelPath).mesh = shotgum
+	
+	time_to_next_shot -= delta
 
 func _physics_process(delta):
 	move(delta)
 	look_around(delta)
-	make_gun_stuf()
+	make_gun_stuf(delta)
 	
