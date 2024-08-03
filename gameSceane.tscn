@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cx56mgbkxdu4u"]
+[gd_scene load_steps=17 format=3 uid="uid://cx56mgbkxdu4u"]
 
 [ext_resource type="PackedScene" uid="uid://nund2fuw7efn" path="res://assets/player.tscn" id="1_r1xdg"]
+[ext_resource type="PackedScene" uid="uid://cdv8146rorrrw" path="res://assets/pots_and_guns/whater can.tscn" id="2_22oef"]
 [ext_resource type="ArrayMesh" uid="uid://bx1gvr1wdihki" path="res://assets/meshes_materials/assets_house.res" id="2_c84dq"]
 [ext_resource type="PackedScene" uid="uid://co6gwg4tcy31k" path="res://assets/pots_and_guns/green_pot.tscn" id="3_tpfbi"]
 [ext_resource type="PackedScene" uid="uid://dbc2c8fuw7plk" path="res://assets/pots_and_guns/orange_pot.tscn" id="4_24of4"]
@@ -56,7 +57,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u2gm5")
 shape = SubResource("ConcavePolygonShape3D_tnu31")
 
 [node name="Player" parent="." instance=ExtResource("1_r1xdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0423674, 5.96046e-08, 3.99449)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95763, 5.96046e-08, 3.99449)
 wepon_selected = 3
 
 [node name="AssetsHouse" type="MeshInstance3D" parent="."]
@@ -68,17 +69,20 @@ mesh = ExtResource("2_c84dq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AssetsHouse/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xip7o")
 
+[node name="WhateringPot" parent="." instance=ExtResource("2_22oef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+
 [node name="GreenPot" parent="." instance=ExtResource("3_tpfbi")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -2.1549, -9.53674e-07, 10.0656)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -2.1549, -9.53674e-07, 12.0656)
 
 [node name="OrangePot" parent="." instance=ExtResource("4_24of4")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 7, 0, -1)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 8, 0, -3)
 
 [node name="PinkPot" parent="." instance=ExtResource("5_k366m")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 7, 0, 10)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 8, 0, 12)
 
 [node name="RedPot" parent="." instance=ExtResource("6_628t5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, -1)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, -3)
 
 [node name="threes" type="Node3D" parent="."]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdv8146rorrrw"]
+
+[ext_resource type="Script" path="res://assets/pots_and_guns/pikable_main_item.gd" id="1_8b4if"]
+[ext_resource type="ArrayMesh" uid="uid://dkew8swmqmph0" path="res://assets/meshes_materials/assets_watering can.res" id="1_to854"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4vu73"]
+
+[node name="WhateringPot" type="Node3D"]
+script = ExtResource("1_8b4if")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_to854")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_4vu73")
