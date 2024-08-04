@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cx56mgbkxdu4u"]
+[gd_scene load_steps=21 format=3 uid="uid://cx56mgbkxdu4u"]
 
 [ext_resource type="Script" path="res://wave_master.gd" id="1_ae5sr"]
 [ext_resource type="PackedScene" uid="uid://nund2fuw7efn" path="res://assets/player.tscn" id="1_r1xdg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cllcc27jpq8pf" path="res://assets/pots_and_guns/red_pot.tscn" id="6_628t5"]
 [ext_resource type="PackedScene" uid="uid://byqalrmw73lrs" path="res://assets/props/three.tscn" id="7_dsf85"]
 [ext_resource type="AudioStream" uid="uid://dlxnbn7s3lisp" path="res://sfx/bees-on-a-huge-kiwi-plant-17530.mp3" id="9_h5k3n"]
+[ext_resource type="PackedScene" uid="uid://c6inlow17kurl" path="res://assets/enemy_robot.tscn" id="11_eyk61"]
 [ext_resource type="PackedScene" uid="uid://dtf28mjgrt2yp" path="res://assets/pots_and_guns/fertilizer.tscn" id="11_fakcf"]
 
 [sub_resource type="Environment" id="Environment_8mebt"]
@@ -47,8 +48,34 @@ size = Vector3(112.442, 13, 16)
 
 [node name="GameSceane" type="Node3D"]
 script = ExtResource("1_ae5sr")
+wave_intensity = 5
+enemy_asset = ExtResource("11_eyk61")
 
 [node name="spawns" type="Node3D" parent="."]
+
+[node name="spawn" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.835, 0, 5.85391)
+
+[node name="spawn2" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.835, 0, 43.6877)
+
+[node name="spawn3" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.835, 0, -27.1583)
+
+[node name="spawn4" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754547, 0, -27.1583)
+
+[node name="spawn5" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0573, 0, -27.1583)
+
+[node name="spawn6" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0573, 0, 3.13659)
+
+[node name="spawn7" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0573, 0, 42.8824)
+
+[node name="spawn8" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12143, 0, 42.8824)
 
 [node name="enemys" type="Node3D" parent="."]
 
