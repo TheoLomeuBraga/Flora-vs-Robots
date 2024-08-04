@@ -11,20 +11,31 @@ size = Vector3(3.15717, 6.55164, 3.78516)
 [node name="OrangePot" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_wlqil")
+plant = NodePath("AssetsFlowerOrange")
+display = NodePath("Label3D")
 item_selected = 3
+to_unlock_item = -3
 
 [node name="AssetsFlowerOrange" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_weh6c")
 
-[node name="AssetsFlowerPotOrange" type="MeshInstance3D" parent="."]
-mesh = ExtResource("2_wljhc")
-
-[node name="AssetsShotGumPlant" type="MeshInstance3D" parent="."]
+[node name="AssetsShotGumPlant" type="MeshInstance3D" parent="AssetsFlowerOrange"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.19737, 0)
 mesh = ExtResource("3_lyx41")
+skeleton = NodePath("../..")
+
+[node name="AssetsFlowerPotOrange" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_wljhc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0289001, 2.77582, 0.178711)
 shape = SubResource("BoxShape3D_naukt")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.876886, 0.480698, 0, -0.480698, 0.876886, 0, 7.22851, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "5
+"
+font_size = 500

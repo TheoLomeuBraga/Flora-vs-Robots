@@ -19,3 +19,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wjy1j")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 target_position = Vector3(1, 0, 0)
+hit_from_inside = true

@@ -62,12 +62,26 @@ var time_to_next_shot = 0.0
 @export var bullet : PackedScene
 var rng := RandomNumberGenerator.new()
 
+var fertilizer_count := 5
 
 func make_gun_stuf(delta):
 	
 	if wepon_selected == 0:
 			
 		get_node(gunModelPath).mesh = whater_can
+		
+		if $player_model/item.is_colliding():
+			var item_coliding = $player_model/item.get_collider().get_parent()
+		
+			if item_coliding.has_method("is_pikable_item"):
+			
+				if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("shot") ) and item_coliding.to_unlock_item < 0 and fertilizer_count > 0:
+					item_coliding.add_fertilizer()
+					fertilizer_count -= 1
+					$Audio.stream = preload("res://sfx/watering-with-a-watering-can-39121.mp3")
+					$Audio.pitch_scale = rng.randf_range(1.25,1.75)
+					$Audio.seek(2)
+					$Audio.play()
 			
 	elif wepon_selected == 1:
 		
@@ -124,6 +138,8 @@ func make_gun_stuf(delta):
 
 func comfirm_player():
 	pass
+	
+
 
 func _physics_process(delta):
 	
@@ -134,16 +150,24 @@ func _physics_process(delta):
 	
 	if $player_model/item.is_colliding():
 		var i : int = 0
-		var item_coliding = $player_model/item.get_collider().get_parent()
+		var item_coliding = $player_model/item.get_collider()
+		if item_coliding != null and item_coliding.get_parent() != null:
+			item_coliding = item_coliding.get_parent()
 		
-		if item_coliding.has_method("is_pikable_item"):
+		if item_coliding != null:
+			print(item_coliding)
+		
+			if item_coliding.has_method("is_pikable_item"):
 			
-			if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0:
-				if item_coliding.item_selected == 4:
-					$healthBar.value = 10
-				else:
-					wepon_selected = item_coliding.item_selected
+				if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0 and item_coliding.block_this_frame == false:
+					if item_coliding.item_selected == 4:
+						item_coliding.to_unlock_item = -3
+						$healthBar.value = 10
+					else:
+						wepon_selected = item_coliding.item_selected
 	
 	if $healthBar.value == 0:
 		get_tree().change_scene_to_packed(game_over_screen)
+		
+	$fertilizer.text = "Fertilizer: " + str(fertilizer_count)
 	

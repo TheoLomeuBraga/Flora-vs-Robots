@@ -60,7 +60,6 @@ shape = SubResource("ConcavePolygonShape3D_tnu31")
 
 [node name="Player" parent="." instance=ExtResource("1_r1xdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95763, 5.96046e-08, 3.99449)
-wepon_selected = 3
 
 [node name="AssetsHouse" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, -7.17106, 0, 4.95566)
@@ -84,7 +83,7 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 8, 0, 12)
 
 [node name="RedPot" parent="." instance=ExtResource("6_628t5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, -3)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -2, 0, -3)
 
 [node name="threes" type="Node3D" parent="."]
 

@@ -7,7 +7,6 @@ var player : Node3D
 
 func _ready():
 	player = get_tree().get_root().get_node("GameSceane/Player")
-	print(player)
 
 @export var speed := 500.0
 @export var health := 1

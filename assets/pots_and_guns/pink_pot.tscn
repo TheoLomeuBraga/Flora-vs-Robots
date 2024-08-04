@@ -11,7 +11,10 @@ size = Vector3(3.15717, 6.55164, 3.78516)
 [node name="PinkPot" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_y5vhr")
+plant = NodePath("AssetsFlowerPink")
+display = NodePath("Label3D")
 item_selected = 2
+to_unlock_item = -2
 
 [node name="AssetsFlowerPotPink" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_lev0m")
@@ -28,3 +31,10 @@ mesh = ExtResource("3_ccgqi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0289001, 2.77582, 0.178711)
 shape = SubResource("BoxShape3D_npvms")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.876886, 0.480698, 0, -0.480698, 0.876886, 0, 7.22851, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "5
+"
+font_size = 500

@@ -11,6 +11,8 @@ size = Vector3(3.15717, 6.55164, 3.78516)
 [node name="RedPot" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_57e5b")
+plant = NodePath("AssetsFlowerRed")
+display = NodePath("Label3D")
 item_selected = 4
 
 [node name="AssetsFlowerPotRed" type="MeshInstance3D" parent="."]
@@ -19,12 +21,20 @@ mesh = ExtResource("1_wxvff")
 [node name="AssetsFlowerRed" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_rwpr2")
 
-[node name="AssetsRedFruit" type="MeshInstance3D" parent="."]
+[node name="AssetsRedFruit" type="MeshInstance3D" parent="AssetsFlowerRed"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 mesh = ExtResource("3_2ghw7")
+skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0289001, 2.77582, 0.178711)
 shape = SubResource("BoxShape3D_o0ju3")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.876886, 0.480698, 0, -0.480698, 0.876886, 0, 7.22851, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "5
+"
+font_size = 500
