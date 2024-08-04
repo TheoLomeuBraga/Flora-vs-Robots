@@ -122,6 +122,9 @@ func make_gun_stuf(delta):
 
 @export var game_over_screen : PackedScene
 
+func comfirm_player():
+	pass
+
 func _physics_process(delta):
 	
 	
