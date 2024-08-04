@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6inlow17kurl"]
+[gd_scene load_steps=6 format=3 uid="uid://c6inlow17kurl"]
 
 [ext_resource type="ArrayMesh" uid="uid://d3lrbt0ffk732" path="res://assets/meshes_materials/assets_robot.res" id="1_5va5d"]
 [ext_resource type="Script" path="res://assets/enemy_robot.gd" id="1_euepq"]
+[ext_resource type="PackedScene" uid="uid://b2dmtcub2hv48" path="res://sfx/explosion.tscn" id="2_mjfju"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yunj7"]
 size = Vector3(1, 2.76215, 1)
@@ -10,6 +11,7 @@ size = Vector3(1, 2.76215, 1)
 
 [node name="EnemyRobot" type="CharacterBody3D"]
 script = ExtResource("1_euepq")
+explosion = ExtResource("2_mjfju")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

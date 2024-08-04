@@ -5,9 +5,11 @@ extends Node3D
 @export var enemy_asset : PackedScene
 
 var camera : Camera3D
+var player : Node3D
 
 func _ready():
 	camera = get_tree().get_root().get_node("GameSceane/Player/Camera3D")
+	player = get_tree().get_root().get_node("GameSceane/Player")
 
 func stop_wave():
 	wave_intensity = 0
@@ -22,16 +24,33 @@ func spawn_enemy():
 		
 		if !camera.is_position_in_frustum(spawn.global_position):
 			var enemy : Node3D = enemy_asset.instantiate()
+			$enemys.add_child(enemy)
 			enemy.global_position = spawn.global_position
-			get_tree().get_root().add_child(enemy)
 			break
 		
 		tries -= 1
 
+@export var wave_duration : float = 10.0
 var time_to_next_spawn : float = 1.0
+
+var wave_is_over := false
 func _process(delta):
-	if time_to_next_spawn <= 0:
-		time_to_next_spawn = 5.0 / float(wave_intensity)
-		spawn_enemy()
+	if wave_duration > 0:
+		wave_is_over = false
+		if time_to_next_spawn <= 0:
+			time_to_next_spawn = 1.0 / float(wave_intensity)
+			spawn_enemy()
 	
+	wave_duration -= delta
 	time_to_next_spawn -= delta
+	
+	
+	if wave_duration <= 0 and $enemys.get_child_count() == 0 and wave_is_over == false:
+		wave_is_over = true
+		print("wave is over")
+		player.fertilizer_count += 1
+		
+	if wave_is_over and player.fertilizer_count == 0:
+		wave_duration = 10
+		wave_intensity = 2
+		$waveStart.play()

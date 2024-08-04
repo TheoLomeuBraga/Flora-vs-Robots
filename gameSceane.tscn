@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://nund2fuw7efn" path="res://assets/player.tscn" id="1_r1xdg"]
 [ext_resource type="PackedScene" uid="uid://cdv8146rorrrw" path="res://assets/pots_and_guns/whater can.tscn" id="2_22oef"]
 [ext_resource type="ArrayMesh" uid="uid://bx1gvr1wdihki" path="res://assets/meshes_materials/assets_house.res" id="2_c84dq"]
+[ext_resource type="AudioStream" uid="uid://dslv6vlhjuhne" path="res://sfx/morphed-metal-discharged-cinematic-trailer-sound-effects-124763.mp3" id="3_8lpia"]
 [ext_resource type="PackedScene" uid="uid://co6gwg4tcy31k" path="res://assets/pots_and_guns/green_pot.tscn" id="3_tpfbi"]
 [ext_resource type="PackedScene" uid="uid://dbc2c8fuw7plk" path="res://assets/pots_and_guns/orange_pot.tscn" id="4_24of4"]
 [ext_resource type="PackedScene" uid="uid://hyxbdtxcfvyn" path="res://assets/pots_and_guns/pink_pot.tscn" id="5_k366m"]
@@ -11,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://byqalrmw73lrs" path="res://assets/props/three.tscn" id="7_dsf85"]
 [ext_resource type="AudioStream" uid="uid://dlxnbn7s3lisp" path="res://sfx/bees-on-a-huge-kiwi-plant-17530.mp3" id="9_h5k3n"]
 [ext_resource type="PackedScene" uid="uid://c6inlow17kurl" path="res://assets/enemy_robot.tscn" id="11_eyk61"]
-[ext_resource type="PackedScene" uid="uid://dtf28mjgrt2yp" path="res://assets/pots_and_guns/fertilizer.tscn" id="11_fakcf"]
 
 [sub_resource type="Environment" id="Environment_8mebt"]
 background_mode = 1
@@ -48,8 +48,11 @@ size = Vector3(112.442, 13, 16)
 
 [node name="GameSceane" type="Node3D"]
 script = ExtResource("1_ae5sr")
-wave_intensity = 5
+wave_intensity = 1
 enemy_asset = ExtResource("11_eyk61")
+
+[node name="waveStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8lpia")
 
 [node name="spawns" type="Node3D" parent="."]
 
@@ -293,6 +296,3 @@ shape = SubResource("BoxShape3D_855yd")
 [node name="background sounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_h5k3n")
 autoplay = true
-
-[node name="Fertilizer" parent="." instance=ExtResource("11_fakcf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70364, -9.53674e-07, 9.14228)
