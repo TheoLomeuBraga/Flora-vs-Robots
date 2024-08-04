@@ -62,7 +62,7 @@ var time_to_next_shot = 0.0
 @export var bullet : PackedScene
 var rng := RandomNumberGenerator.new()
 
-var fertilizer_count := 5
+var fertilizer_count := 0
 
 func make_gun_stuf(delta):
 	
@@ -140,8 +140,14 @@ func comfirm_player():
 	pass
 	
 
+var invencibility_time = 0
+func damage():
+	if invencibility_time <= 0: 
+		$healthBar.value -= 1
+		invencibility_time = 0.5
 
 func _physics_process(delta):
+	
 	
 	
 	move(delta)
@@ -155,7 +161,6 @@ func _physics_process(delta):
 			item_coliding = item_coliding.get_parent()
 		
 		if item_coliding != null:
-			print(item_coliding)
 		
 			if item_coliding.has_method("is_pikable_item"):
 			
@@ -163,6 +168,8 @@ func _physics_process(delta):
 					if item_coliding.item_selected == 4:
 						item_coliding.to_unlock_item = -3
 						$healthBar.value = 10
+					elif item_coliding.item_selected == 5: 
+						fertilizer_count += 1
 					else:
 						wepon_selected = item_coliding.item_selected
 	
@@ -170,4 +177,6 @@ func _physics_process(delta):
 		get_tree().change_scene_to_packed(game_over_screen)
 		
 	$fertilizer.text = "Fertilizer: " + str(fertilizer_count)
+	
+	invencibility_time -= delta
 	

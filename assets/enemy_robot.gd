@@ -21,3 +21,9 @@ func _physics_process(delta):
 	
 	if health <= 0:
 		queue_free()
+		
+	
+	if $hitBox.is_colliding():
+		for i in $hitBox.get_collision_count():
+			if $hitBox.get_collider(i).has_method("comfirm_player"):
+				$hitBox.get_collider(i).damage()

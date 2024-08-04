@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtf28mjgrt2yp"]
+
+[ext_resource type="ArrayMesh" uid="uid://do3dwpxm6isoj" path="res://assets/meshes_materials/assets_Fertilizer.res" id="1_am0jb"]
+[ext_resource type="Script" path="res://assets/pots_and_guns/pikable_main_item.gd" id="1_s7i4i"]
+
+[node name="Fertilizer" type="Node3D"]
+script = ExtResource("1_s7i4i")
+item_selected = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_am0jb")

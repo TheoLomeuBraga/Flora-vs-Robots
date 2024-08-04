@@ -5,16 +5,22 @@ extends Node3D
 
 var plant_node : Node3D
 var display_node : Node3D
+
+var player : Node3D
+
+
 func _ready():
 	plant_node = get_node(plant)
 	display_node = get_node(display)
+	player = get_tree().get_root().get_node("GameSceane/Player")
 
 enum wepon_enum {
 	whater_can = 0,
 	pistol = 1,
 	smg = 2,
 	shotgum = 3,
-	health = 4
+	health = 4,
+	fertilizer = 5,
 }
 
 @export var item_selected : wepon_enum = wepon_enum.whater_can
@@ -43,3 +49,8 @@ func _process(delta):
 				display_node.text = "V"
 		
 	block_this_frame = false
+	
+	
+	if item_selected == 5 and player.global_position.distance_to(global_position) < 2:
+		player.fertilizer_count += 1
+		queue_free()

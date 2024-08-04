@@ -79,10 +79,10 @@ offset_bottom = 23.0
 text = "health"
 
 [node name="fertilizer" type="Label" parent="."]
-offset_left = 464.0
-offset_top = 366.0
-offset_right = 602.0
-offset_bottom = 402.0
+offset_left = 462.0
+offset_top = 362.0
+offset_right = 600.0
+offset_bottom = 398.0
 theme_override_colors/font_color = Color(0.40019, 1, 0.369743, 1)
 theme_override_font_sizes/font_size = 26
 text = "Fertilizer: 0"
