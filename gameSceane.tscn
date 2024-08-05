@@ -307,3 +307,5 @@ theme_override_font_sizes/font_size = 16
 text = "wave:"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="tutorials" type="Node3D" parent="."]

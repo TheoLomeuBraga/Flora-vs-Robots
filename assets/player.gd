@@ -26,7 +26,7 @@ enum wepon_enum {
 	health = 4
 }
 
-@export var wepon_selected : wepon_enum
+@export var wepon_selected : wepon_enum = -1
 
 
 
@@ -65,6 +65,8 @@ var rng := RandomNumberGenerator.new()
 @export var fertilizer_count := 0
 
 func make_gun_stuf(delta):
+	
+	$player_model/gun_model.visible = not wepon_selected == -1
 	
 	if wepon_selected == 0:
 			
@@ -132,6 +134,7 @@ func make_gun_stuf(delta):
 			$Audio.stream = preload("res://sfx/falling-bamboo-83469.mp3")
 			$Audio.pitch_scale = rng.randf_range(1.25,1.75)
 			$Audio.play()
+	
 	
 	time_to_next_shot -= delta
 

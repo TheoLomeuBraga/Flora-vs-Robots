@@ -32,9 +32,11 @@ func spawn_enemy():
 
 @export var wave_duration : float = 10.0
 var time_to_next_spawn : float = 1.0
-var wave_no : int = 0.0
+var wave_no : int = 0
 
 var wave_is_over := false
+
+var tutorial_step := 0
 func _process(delta):
 	
 	if wave_no > 0:
@@ -62,5 +64,6 @@ func _process(delta):
 			wave_intensity = 2 + wave_no
 			$waveStart.play()
 	else:
+		#tutorial_step
 		pass
 	

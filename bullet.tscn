@@ -1,10 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1osouhsopqqu"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_1j5vc"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_ynei3"]
-radial_segments = 4
-rings = 1
+[ext_resource type="SphereMesh" uid="uid://ba2tnnxxqhhrd" path="res://assets/meshes_materials/bullet.tres" id="2_7lto8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjy1j"]
 resource_local_to_scene = true
@@ -13,7 +10,7 @@ resource_local_to_scene = true
 script = ExtResource("1_1j5vc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_ynei3")
+mesh = ExtResource("2_7lto8")
 surface_material_override/0 = SubResource("StandardMaterial3D_wjy1j")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
