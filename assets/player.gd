@@ -170,7 +170,7 @@ func _physics_process(delta):
 			
 				if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0 and item_coliding.block_this_frame == false:
 					if item_coliding.item_selected == 4:
-						item_coliding.to_unlock_item = -3
+						item_coliding.to_unlock_item = -1
 						$healthBar.value = 10
 					elif item_coliding.item_selected == 5: 
 						fertilizer_count += 1

@@ -48,7 +48,7 @@ func _process(delta):
 			if to_unlock_item == 0:
 				display_node.text = "V"
 		
-	block_this_frame = false
+	block_this_frame = false 
 	
 	
 	if item_selected == 5 and player.global_position.distance_to(global_position) < 2:
