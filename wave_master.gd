@@ -11,10 +11,6 @@ func _ready():
 	camera = get_tree().get_root().get_node("GameSceane/Player/Camera3D")
 	player = get_tree().get_root().get_node("GameSceane/Player")
 	$"tutorials/tutorial 1".visible = true
-	$"tutorials/tutorial 2".visible = false
-	$"tutorials/tutorial 3".visible = false
-	$"tutorials/tutorial 4".visible = false
-	$"tutorials/tutorial 5".visible = false
 
 func stop_wave():
 	wave_intensity = 0
@@ -87,7 +83,6 @@ func _process(delta):
 				
 		elif tutorial_step == 2:
 			if $Player.get_node("healthBar").value == 10:
-				print("A")
 				$"tutorials/tutorial 3".visible = false
 				$"tutorials/tutorial 4".visible = true
 				tutorial_step += 1

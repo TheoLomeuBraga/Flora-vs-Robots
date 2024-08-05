@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp4dmav54u0qh"]
+[gd_scene load_steps=3 format=3 uid="uid://dp4dmav54u0qh"]
 
 [ext_resource type="Script" path="res://menus/gameOver.gd" id="1_cq66w"]
+[ext_resource type="AudioStream" uid="uid://dslv6vlhjuhne" path="res://sfx/morphed-metal-discharged-cinematic-trailer-sound-effects-124763.mp3" id="2_6k8lh"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -10,6 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cq66w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6k8lh")
+autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -50,5 +55,5 @@ layout_mode = 2
 text = "go to menu
 "
 
-[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]
