@@ -14,6 +14,7 @@ func _ready():
 	$"tutorials/tutorial 2".visible = false
 	$"tutorials/tutorial 3".visible = false
 	$"tutorials/tutorial 4".visible = false
+	$"tutorials/tutorial 5".visible = false
 
 func stop_wave():
 	wave_intensity = 0
@@ -36,18 +37,18 @@ func spawn_enemy():
 
 @export var wave_duration : float = 10.0
 var time_to_next_spawn : float = 1.0
-var wave_no : int = 0
+
 
 var wave_is_over := false
 
 var tutorial_step := 0
 func _process(delta):
 	
-	if wave_no > 0:
+	if Global.wave_no > 0:
 		$wave_no.visible = wave_duration > 0
-		$wave_no.text = "wave: " + str(wave_no)
+		$wave_no.text = "wave: " + str(Global.wave_no)
 		
-		if wave_duration > 0 and wave_no > 0:
+		if wave_duration > 0 and Global.wave_no > 0:
 			wave_is_over = false
 			if time_to_next_spawn <= 0:
 				time_to_next_spawn = 1.0 / float(wave_intensity)
@@ -59,13 +60,13 @@ func _process(delta):
 	
 		if wave_duration <= 0 and $enemys.get_child_count() == 0 and wave_is_over == false:
 			$wave_no.visible = true
-			wave_no += 1
+			Global.wave_no += 1
 			wave_is_over = true
 			player.fertilizer_count += 1
 		
 		if wave_is_over and player.fertilizer_count == 0:
-			wave_duration = 10 + (wave_no * 2)
-			wave_intensity = 2 + wave_no
+			wave_duration = 10 + (Global.wave_no * 2)
+			wave_intensity = 2 + Global.wave_no
 			$waveStart.play()
 	else:
 			
@@ -98,6 +99,9 @@ func _process(delta):
 				tutorial_step += 1
 		else:
 			$"tutorials/tutorial 4".visible = false
-			wave_no = 1
+			Global.wave_no = 1
 			$waveStart.play()
+	
+	$"tutorials/tutorial 5".visible = Global.wave_no == 2 and wave_is_over
+		
 	

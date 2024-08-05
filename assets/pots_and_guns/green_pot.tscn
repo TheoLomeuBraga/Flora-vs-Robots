@@ -16,6 +16,7 @@ display = NodePath("Label3D")
 item_selected = 1
 
 [node name="AssetsFlowerGreen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0971551, 0)
 mesh = ExtResource("1_v00cm")
 
 [node name="AssetsGunPlant" type="MeshInstance3D" parent="AssetsFlowerGreen"]

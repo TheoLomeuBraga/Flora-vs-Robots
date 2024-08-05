@@ -153,35 +153,47 @@ func damage():
 func _physics_process(delta):
 	
 	
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Engine.time_scale == 0:
+			Engine.time_scale = 1
+			$pause.visible = false
+		else:
+			Engine.time_scale = 0
+			$pause.visible = true
 	
-	move(delta)
-	look_around(delta)
-	make_gun_stuf(delta)
+	if Engine.time_scale > 0:
 	
-	if $player_model/item.is_colliding():
-		var i : int = 0
-		var item_coliding = $player_model/item.get_collider()
-		if item_coliding != null and item_coliding.get_parent() != null:
-			item_coliding = item_coliding.get_parent()
+		move(delta)
+		look_around(delta)
+		make_gun_stuf(delta)
 		
-		if item_coliding != null:
-		
-			if item_coliding.has_method("is_pikable_item"):
+		if $player_model/item.is_colliding():
+			var i : int = 0
+			var item_coliding = $player_model/item.get_collider()
+			if item_coliding != null and item_coliding.get_parent() != null:
+				item_coliding = item_coliding.get_parent()
 			
-				if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0 and item_coliding.block_this_frame == false:
-					if item_coliding.item_selected == 4:
-						item_coliding.to_unlock_item = -1
-						$healthBar.value = 10
-					elif item_coliding.item_selected == 5: 
-						fertilizer_count += 1
-					else:
-						wepon_selected = item_coliding.item_selected
-	
-	if $healthBar.value == 0:
-		get_tree().change_scene_to_packed(game_over_screen)
-	
-	$fertilizer.visible = fertilizer_count > 0
-	$fertilizer.text = "Fertilizer: " + str(fertilizer_count)
-	
-	invencibility_time -= delta
+			if item_coliding != null:
+			
+				if item_coliding.has_method("is_pikable_item"):
+					$can_interact.visible = true
+				
+					if Input.is_action_just_pressed("ui_accept") and item_coliding.to_unlock_item == 0 and item_coliding.block_this_frame == false:
+						if item_coliding.item_selected == 4:
+							item_coliding.to_unlock_item = -1
+							$healthBar.value = 10
+						elif item_coliding.item_selected == 5: 
+							fertilizer_count += 1
+						else:
+							wepon_selected = item_coliding.item_selected
+				else:
+					$can_interact.visible = false
+		
+		if $healthBar.value == 0:
+			get_tree().change_scene_to_packed(game_over_screen)
+		
+		$fertilizer.visible = fertilizer_count > 0
+		$fertilizer.text = "Fertilizer: " + str(fertilizer_count)
+		
+		invencibility_time -= delta
 	
