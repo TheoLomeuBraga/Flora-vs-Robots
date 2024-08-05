@@ -68,7 +68,7 @@ tooltip_text = "
 "
 theme = SubResource("Theme_vcnnu")
 max_value = 10.0
-value = 10.0
+value = 3.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="healthBar"]

@@ -62,7 +62,7 @@ var time_to_next_shot = 0.0
 @export var bullet : PackedScene
 var rng := RandomNumberGenerator.new()
 
-var fertilizer_count := 0
+@export var fertilizer_count := 0
 
 func make_gun_stuf(delta):
 	
@@ -82,6 +82,7 @@ func make_gun_stuf(delta):
 					$Audio.pitch_scale = rng.randf_range(1.25,1.75)
 					$Audio.seek(2)
 					$Audio.play()
+					
 			
 	elif wepon_selected == 1:
 		
@@ -175,7 +176,8 @@ func _physics_process(delta):
 	
 	if $healthBar.value == 0:
 		get_tree().change_scene_to_packed(game_over_screen)
-		
+	
+	$fertilizer.visible = fertilizer_count > 0
 	$fertilizer.text = "Fertilizer: " + str(fertilizer_count)
 	
 	invencibility_time -= delta

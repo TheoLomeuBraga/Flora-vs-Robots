@@ -96,6 +96,7 @@ shape = SubResource("ConcavePolygonShape3D_tnu31")
 
 [node name="Player" parent="." instance=ExtResource("1_r1xdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95763, 5.96046e-08, 3.99449)
+fertilizer_count = 1
 
 [node name="AssetsHouse" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, -7.17106, 0, 4.95566)
@@ -120,6 +121,7 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 
 [node name="RedPot" parent="." instance=ExtResource("6_628t5")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -2, 0, -3)
+to_unlock_item = -1
 
 [node name="threes" type="Node3D" parent="."]
 
@@ -296,3 +298,12 @@ shape = SubResource("BoxShape3D_855yd")
 [node name="background sounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_h5k3n")
 autoplay = true
+
+[node name="wave_no" type="Label" parent="."]
+offset_left = 215.0
+offset_right = 381.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 16
+text = "wave:"
+horizontal_alignment = 1
+vertical_alignment = 1
