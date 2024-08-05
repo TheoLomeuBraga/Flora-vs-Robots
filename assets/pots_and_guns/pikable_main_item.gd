@@ -26,7 +26,7 @@ enum wepon_enum {
 @export var item_selected : wepon_enum = wepon_enum.whater_can
 @export var to_unlock_item : int = 0
 
-
+@export var bloked = false
 
 func is_pikable_item():
 	pass

@@ -77,7 +77,7 @@ func make_gun_stuf(delta):
 		
 			if item_coliding.has_method("is_pikable_item"):
 			
-				if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("shot") ) and item_coliding.to_unlock_item < 0 and fertilizer_count > 0:
+				if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("shot") ) and item_coliding.to_unlock_item < 0 and not item_coliding.bloked and fertilizer_count > 0:
 					item_coliding.add_fertilizer()
 					fertilizer_count -= 1
 					$Audio.stream = preload("res://sfx/watering-with-a-watering-can-39121.mp3")

@@ -10,6 +10,10 @@ var player : Node3D
 func _ready():
 	camera = get_tree().get_root().get_node("GameSceane/Player/Camera3D")
 	player = get_tree().get_root().get_node("GameSceane/Player")
+	$"tutorials/tutorial 1".visible = true
+	$"tutorials/tutorial 2".visible = false
+	$"tutorials/tutorial 3".visible = false
+	$"tutorials/tutorial 4".visible = false
 
 func stop_wave():
 	wave_intensity = 0
@@ -64,6 +68,36 @@ func _process(delta):
 			wave_intensity = 2 + wave_no
 			$waveStart.play()
 	else:
-		#tutorial_step
-		pass
+			
+		if tutorial_step == 0:
+			if $Player.wepon_selected == 0:
+				
+				$"tutorials/tutorial 1".visible = false
+				$"tutorials/tutorial 2".visible = true
+				tutorial_step += 1
+				
+		elif tutorial_step == 1:
+			if $RedPot.to_unlock_item == 0:
+				$"tutorials/tutorial 2".visible = false
+				$"tutorials/tutorial 3".visible = true
+				$OrangePot.bloked = false
+				$PinkPot.bloked = false
+				tutorial_step += 1
+				
+		elif tutorial_step == 2:
+			if $Player.get_node("healthBar").value == 10:
+				print("A")
+				$"tutorials/tutorial 3".visible = false
+				$"tutorials/tutorial 4".visible = true
+				tutorial_step += 1
+				
+		elif tutorial_step == 3:
+			if $Player.wepon_selected == 1:
+				$"tutorials/tutorial 3".visible = false
+				$"tutorials/tutorial 4".visible = true
+				tutorial_step += 1
+		else:
+			$"tutorials/tutorial 4".visible = false
+			wave_no = 1
+			$waveStart.play()
 	
